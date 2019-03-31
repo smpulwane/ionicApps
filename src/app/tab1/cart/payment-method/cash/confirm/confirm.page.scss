@@ -1,0 +1,32 @@
+.bigFont{
+    font-size: 13vh;
+    text-align: center;
+}
+
+.transact_div{
+  
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    color:white;
+    z-index: 3; 
+    bottom: 1vh;
+    background: none;
+    position:absolute;
+    overflow: hidden;
+  }
+
+.transact_div div{
+    float: left;
+    padding:15px;
+    margin-left: 0px;
+  
+  }
+  
+ 
+  
+  .total_p{
+    text-align: center;
+    background-color:#4363d8;
+    width: 100%;
+  }

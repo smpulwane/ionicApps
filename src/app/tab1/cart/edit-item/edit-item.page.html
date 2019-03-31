@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-button  slot="start" [routerLink]="['/cart/']"  routerDirection="backward">
+          <ion-icon  name="close"></ion-icon>
+        </ion-button>
+   
+    <!--Must update to save changes first-->
+   <ion-button  slot="end">
+      <ion-icon  name="checkmark"></ion-icon>
+    </ion-button>
+    <ion-title>Item name</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-label>
+      Quantity
+    </ion-label>
+    <ion-item class="item-contens" lines="none">
+        <ion-button class="bigfont" fill="clear" slot="icon-only" slot="start">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+   
+    <ion-input class="item-input" type="number" value="3"></ion-input>
+    <ion-button class="bigfont" fill="clear" slot="icon-only" slot="end">
+        <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+ 
+<ion-card class="ion-text-center">
+  <ion-item lines="none" class="ion-no-padding" [routerLink]="['/item-discount/']" class="ion-text-center">
+    <ion-label  color="primary" class="ion-text-center">
+      Add item discount
+    </ion-label>
+  </ion-item>
+</ion-card>
+</ion-content>

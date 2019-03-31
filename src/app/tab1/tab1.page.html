@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Sell
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Inventory</ion-label>
+      </ion-list-header>
+      <ion-item class="display_block" *ngFor="let item of products" >
+        
+        <ion-icon   slot="end" color = "primary" name="add-circle-outline" (click)= "addProduct(item.price)"></ion-icon>
+       <ion-label [routerLink]="['/product-detail/' , item.id]" routerDirection="forward">{{item.description}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <div class="transact_div" [routerLink]="['/cart/']"> 
+      <div class="price">{{items}}</div>
+      <div class="total_p">SUBTOTAL R{{total}}</div>
+    </div>
+</ion-content>

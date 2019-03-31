@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-button  slot="start" [routerLink]="['/cart']"  routeDirection="backward">
+            <ion-icon  name="close"></ion-icon>
+          </ion-button>
+     
+      <!--Must update to save changes first-->
+     <ion-button  slot="end">
+        <ion-icon  name="checkmark"></ion-icon>
+      </ion-button>
+      <ion-title>Apply taxes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <ion-item lines="none">
+    <ion-toggle slot="end" color="primary"></ion-toggle>
+    <ion-label slot="start">VAT(15%)</ion-label>
+  </ion-item>
+
+</ion-content>

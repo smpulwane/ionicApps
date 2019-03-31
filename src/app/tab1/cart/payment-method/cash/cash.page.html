@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="primary">
+     <ion-buttons slot="start">
+       <ion-back-button [routerLink]="['/payment-method/']"></ion-back-button>
+     </ion-buttons>
+      <ion-title>Cash</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+      <p class="ion-text-center">Total</p>
+      <h1 class="ion-text-center">R{{316.25}}</h1>
+      <ion-card>
+
+        <ion-item>
+            <ion-icon slot="start" color="success" name="cash"></ion-icon>
+            <ion-label position="floating">Cash</ion-label>
+            <ion-input lines="full" type="number" autofocus></ion-input>
+        </ion-item>
+          
+      </ion-card>
+      <div class="transact_div" [routerLink]="['/confirm/']"> 
+        <div class="total_p">ACCEPT R{{316.25}}</div>
+      </div>
+  </ion-content>
