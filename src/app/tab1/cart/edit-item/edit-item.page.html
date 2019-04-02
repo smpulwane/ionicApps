@@ -19,12 +19,12 @@
       Quantity
     </ion-label>
     <ion-item class="item-contens" lines="none">
-        <ion-button class="bigfont" fill="clear" slot="icon-only" slot="start">
+        <ion-button class="bigfont" fill="clear" slot="icon-only" slot="start" (click)="decrease()">
             <ion-icon name="remove-circle-outline"></ion-icon>
           </ion-button>
    
-    <ion-input class="item-input" type="number" value="3"></ion-input>
-    <ion-button class="bigfont" fill="clear" slot="icon-only" slot="end">
+    <ion-input class="item-input" type="number" value="{{quantity}}" [(ngModel)]="quantity"></ion-input>
+    <ion-button class="bigfont" fill="clear" slot="icon-only" slot="end" (click)="increase()">
         <ion-icon name="add-circle-outline"></ion-icon>
     </ion-button>
   </ion-item>

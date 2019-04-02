@@ -1,0 +1,15 @@
+[
+    {
+    "id": "1",
+    "title": "Kids",
+    "description": "Kids swim fare",
+    "price": 25
+   },
+   {
+    "id": "2",
+    "title": "Adults",
+    "description": "Adults swim fare",
+    "price": 50
+   }
+
+]

@@ -14,11 +14,11 @@
       </ion-list-header>
       <ion-item class="display_block" *ngFor="let item of products" >
         
-        <ion-icon   slot="end" color = "primary" name="add-circle-outline" (click)= "addProduct(item.price)"></ion-icon>
+        <ion-icon   slot="end" color = "primary" name="add-circle-outline" (click)="addProduct(item)" ></ion-icon>
        <ion-label [routerLink]="['/product-detail/' , item.id]" routerDirection="forward">{{item.description}}</ion-label>
       </ion-item>
     </ion-list>
-    <div class="transact_div" [routerLink]="['/cart/']"> 
+    <div class="transact_div" (click)="addToCart()"> 
       <div class="price">{{items}}</div>
       <div class="total_p">SUBTOTAL R{{total}}</div>
     </div>

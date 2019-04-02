@@ -1,6 +1,8 @@
 {
   "name": "veto1-4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "09c12132"
 }

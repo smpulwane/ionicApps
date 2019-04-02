@@ -1,0 +1,20 @@
+[
+    {
+     "id": "any",
+     "time": "any",
+     "date": "any",
+     "total": 0,
+     "discount": 0,
+     "vat": 0,
+     "subtotal": 0,
+     "items": [
+      {
+        "id" : "any",
+        "quantity": 1,
+        "title" : "any",
+        "description": "any",
+        "price": 1
+    }
+     ]
+    }
+  ]

@@ -14,22 +14,14 @@
 
 <ion-content>
     <ion-list>
-          <ion-item lines="none">
+      
+          <ion-item lines="none" *ngFor="let item of _transaction[0].items">
               <ion-icon   slot="end" color = "primary" name="close"></ion-icon>
-             
-              <ion-badge [routerLink]="['/edit-item/']" slot="start">4</ion-badge>
-              <ion-label [routerLink]="['/edit-item/']" >Adults swim Fair</ion-label>
-              <p [routerLink]="['/edit-item/']" class="ion-float-right">R200</p>
-              
+              <ion-badge [routerLink]="['/edit-item/',item.quantity]" slot="start">{{item.quantity}}</ion-badge>
+              <ion-label [routerLink]="['/edit-item/',item.quantity]" >{{item.description}}</ion-label>
+              <p [routerLink]="['/edit-item/',item.quantity]" class="ion-float-right">R{{item.quantity * item.price}}</p>
             </ion-item>
-            <ion-item lines="none">
-                <ion-icon   slot="end" color = "primary" name="close"></ion-icon>
-                
-                <ion-badge [routerLink]="['/edit-item/']" slot="start">3</ion-badge>
-                <ion-label [routerLink]="['/edit-item/']" >Kids swim Fair</ion-label>
-                <p  [routerLink]="['/edit-item/']" class="ion-float-right">R75</p>
-                
-              </ion-item>
+          
     </ion-list>
     <ion-card>
         <ion-item lines="none" [routerLink]="['/discount/']">
@@ -38,17 +30,17 @@
           <ion-item lines="none">
               <ion-label>
               <p class="ion-float-left">Subtotal</p>
-              <p class="ion-float-right">R{{275}}</p>
+              <p class="ion-float-right">R{{_transaction[0].total}}</p>
               </ion-label>
             </ion-item>
           <ion-item lines="none" [routerLink]="['/vat/']">
                 <ion-label color="primary">
-                <p class="ion-float-left" color="primary">VAT({{15}}%)</p>
-                <p class="ion-float-right">R{{41.25}}</p>
+                <p class="ion-float-left"  disabled color="primary">VAT({{15}}%)</p>
+                <p class="ion-float-right">R{{0}}</p>
               </ion-label>
             </ion-item>
       </ion-card>
       <div class="transact_div" [routerLink]="['/payment-method/']"> 
-        <div class="total_p">CHARGE R{{316.25}}</div>
+        <div class="total_p">CHARGE R{{_transaction[0].total}}</div>
       </div>
 </ion-content>
