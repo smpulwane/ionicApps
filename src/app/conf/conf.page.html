@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="primay">
+      <ion-title>Sale #{{transaction[0].id}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <p class="ion-text-center">Total Payment</p>
+      <h1 class="ion-text-center">R{{transaction[0].subtotal}}</h1>
+      <ion-grid>
+        <ion-row text-center >
+          <ion-col text-center >
+              <ion-icon  class="ion-text-center bigFont"  color="success" name="checkmark-circle"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-card>
+  
+        <ion-item>
+            <ion-icon slot="start" color="success" name="cash"></ion-icon>
+            <ion-label>Cash</ion-label>
+            <p class="ion-float-right">R{{transaction[0].subtotal}}</p>
+        </ion-item>
+          
+      </ion-card>
+      <ion-list lines="none">
+          <ion-item>
+            <ion-label>
+              <p class="ion-float-left">Change</p>
+              <p class="ion-float-right">R{{transaction[0].change}}</p>
+            </ion-label>
+            </ion-item>
+          <ion-item>
+            <ion-label color="primary">Email receipt</ion-label>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary">Text receipt</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary">Preview receipt</ion-label>
+              </ion-item>
+              <ion-item>
+                  <ion-label color="primary">Add note</ion-label>
+                </ion-item>
+      </ion-list>
+      <div class="transact_div" (click)="confirmPayment()"> 
+        <!-- this rooting method is a hack- must update soon -->
+        <div class="total_p">DONE</div>
+      </div>
+  </ion-content>
+  

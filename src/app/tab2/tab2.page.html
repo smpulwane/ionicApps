@@ -10,53 +10,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-      <ion-item-group>
-        <ion-list-header>
-          17 March 2018
-        </ion-list-header>
-       <ion-item [routerLink]="['/sale/']">
-        <p>#001</p>
-        <div slot="end">
-            <p>R{{118.32}}</p>
-        <p class="smalTxt">8:38 PM</p>
+  <ion-list >
+    
        
-      </div>
+       <ion-item *ngFor="let item of transactions" (click)="view(item)">
+          <ion-header>
+              {{item.date}}
+            </ion-header>
+        <p>#{{item.id}}</p>
+        <div slot="end">
+            <p>R{{item.subtotal}}</p>
+          <p class="smalTxt">{{item.time}}</p>
+        </div>
        </ion-item>
-       <ion-item [routerLink]="['/sale/']">
-          <p>#002</p>
-          <div slot="end">
-              <p>R{{118.32}}</p>
-              <p class="smalTxt">8:38 PM</p>
-             
-            </div>
-         </ion-item>
-      </ion-item-group>
-      <ion-item-group>
-        <ion-list-header>
-          18 March 2018
-        </ion-list-header>
-       <ion-item [routerLink]="['/sale/']">
-          <p>#003</p>
-          <div slot="end">
-              <p>R{{118.32}}</p>
-              <p class="smalTxt">8:38 PM</p>
-              
-            </div>
-       </ion-item>
-      </ion-item-group>
-      <ion-item-group>
-        <ion-list-header>
-          19 March 2018
-        </ion-list-header>
-       <ion-item [routerLink]="['/sale/']">
-          <p>#004</p>
-          <div slot="end">
-              <p>R{{118.32}}</p>
-              <p class="smalTxt">8:38 PM</p>
-              
-            </div>
-       </ion-item>
-      </ion-item-group>
+     
   </ion-list>
 </ion-content>

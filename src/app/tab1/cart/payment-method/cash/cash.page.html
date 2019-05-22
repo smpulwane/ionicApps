@@ -9,17 +9,17 @@
 
   <ion-content>
       <p class="ion-text-center">Total</p>
-      <h1 class="ion-text-center">R{{316.25}}</h1>
+      <h1 class="ion-text-center">R{{transaction[0].subtotal}}</h1>
       <ion-card>
 
         <ion-item>
             <ion-icon slot="start" color="success" name="cash"></ion-icon>
             <ion-label position="floating">Cash</ion-label>
-            <ion-input lines="full" type="number" autofocus></ion-input>
+            <ion-input lines="full" type="number" [(ngModel)]="cash" autofocus></ion-input>
         </ion-item>
           
       </ion-card>
-      <div class="transact_div" [routerLink]="['/confirm/']"> 
-        <div class="total_p">ACCEPT R{{316.25}}</div>
+      <div class="transact_div" (click)="pay()"> 
+        <div class="total_p">ACCEPT R{{cash}}</div>
       </div>
   </ion-content>

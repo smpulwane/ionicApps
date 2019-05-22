@@ -5,7 +5,7 @@
           </ion-button>
      
       <!--Must update to save changes first-->
-     <ion-button  slot="end">
+     <ion-button  slot="end" (click)="save()">
         <ion-icon  name="checkmark"></ion-icon>
       </ion-button>
       <ion-title>Apply taxes</ion-title>
@@ -15,7 +15,7 @@
 <ion-content>
 
   <ion-item lines="none">
-    <ion-toggle slot="end" color="primary"></ion-toggle>
+    <ion-toggle slot="end" color="primary" [(ngModel)]="vat"></ion-toggle>
     <ion-label slot="start">VAT(15%)</ion-label>
   </ion-item>
 

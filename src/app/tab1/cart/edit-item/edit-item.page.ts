@@ -13,19 +13,20 @@ export class EditItemPage implements OnInit {
   quantity: number = 0;
   item: Item [];
   trasaction: Transaction[];
+  itemID: string;
 
-  constructor(private transtionService: TransactionService,private activatedRoute: ActivatedRoute,) { }
+  constructor(private transtionService: TransactionService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this.quantity =
     this.activatedRoute.paramMap.subscribe( paramMap =>{
-      if(!paramMap.has('productId')){
+      if (!paramMap.has('_quantity') && !paramMap.has('_itemId') ){
         return;
       }
       this.quantity = +paramMap.get('_quantity'); // + parse to number;
+      this.itemID = paramMap.get('_itemId'); // + parse to number;
     });
 
-   
   }
 
   decrease(){
@@ -46,6 +47,12 @@ export class EditItemPage implements OnInit {
       this.quantity = 0;
     }
 
+ }
+
+ saveItem(){
+
+   this.transtionService.updateTransactionItem(this.itemID, this.quantity);
+   this.router.navigate(['/cart']);
  }
 
 

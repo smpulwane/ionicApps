@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {ProductService } from './product.service';
 import { Product } from './product.model';
 import { Transaction } from './transaction.model';
@@ -18,14 +18,39 @@ export class Tab1Page implements OnInit {
   price: number = 50;
   item: Item [] = [];
   products: Product[];
+  track = true;
+  transaction: Transaction [];
+  message:string;
 
-  transation: Transaction [];
-  
 
   constructor (private productService: ProductService, private transationService: TransactionService, private router: Router ){}
 
-  ngOnInit() {
-   this.products = this.productService.getAllProducts();
+
+
+
+  ngOnInit() { this.initialiseTransaction(); }
+
+  initialiseTransaction() {
+
+    this.transationService.currentTotal.subscribe( val => {
+
+      this.total = val === null ? 0 : val ;
+
+     });
+
+     this.transationService.currentNumItems.subscribe( val =>{
+
+      this.items = val === null ? 0 : val ;
+
+     });
+
+     this.transationService.currentTransaction.subscribe( data => {
+
+      this.transaction = data === null ? [] : data ;
+
+     });
+
+     this.products = this.productService.getAllProducts();
 
   }
 
@@ -44,14 +69,14 @@ export class Tab1Page implements OnInit {
 
       for (let i = 0; i < this.item.length; i++) {
         if (this.item[i].title === product.title) {
-  
+
              this.item[i].quantity += 1;
              return false;
         }
      }
 
     }
-    
+
 
    this.item.push(
     {
@@ -61,8 +86,8 @@ export class Tab1Page implements OnInit {
       description: product.description,
       price: product.price
   });
- 
-  
+
+
   }
 
   addToCart() {
@@ -78,7 +103,7 @@ export class Tab1Page implements OnInit {
     const _date = day + '/' + month + '/' + year;
     const _time = hour + ':' + minutes + state;
 
-    this.transation =
+    this.transaction =
      [
       {
        id: _id,
@@ -86,17 +111,19 @@ export class Tab1Page implements OnInit {
        date: _date,
        total: this.total,
        discount: 0,
+       discountType: '0',
        vat: 0,
-       subtotal: 0,
-       items: this.item
+       subtotal: this.total,
+       items: this.item,
+       change: 0
       }
     ];
-  
-   this.transationService.updateTransactionData(this.transation);
+
+   this.transationService.updateTransactionData(this.transaction);
    this.router.navigate(['cart']);
   }
-   
- 
- 
+
+
+
 
 }

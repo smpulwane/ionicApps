@@ -5,7 +5,7 @@
           </ion-button>
      
       <!--Must update to save changes first-->
-     <ion-button  slot="end">
+     <ion-button  slot="end" (click)="save()">
         <ion-icon  name="checkmark"></ion-icon>
       </ion-button>
       <ion-title>Discount</ion-title>
@@ -19,19 +19,19 @@
               <ion-label>Discount</ion-label>
             </ion-list-header>
         
-            <ion-item>
+            <ion-item disabled>
               <ion-label>Code</ion-label>
-              <ion-radio slot="end" value="code" checked></ion-radio>
+              <ion-radio slot="end" value="code" (ionSelect)="setDiscountType(1)" checked></ion-radio>
             </ion-item>
         
             <ion-item>
               <ion-label>Cash</ion-label>
-              <ion-radio slot="end" value="griff"></ion-radio>
+              <ion-radio slot="end" value="cash" (ionSelect)="setDiscountType(2)"></ion-radio>
             </ion-item>
         
             <ion-item>
               <ion-label>Percent</ion-label>
-              <ion-radio slot="end" value="buford"></ion-radio>
+              <ion-radio slot="end" value="percent" (ionSelect)="setDiscountType(3)"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-list>
@@ -39,7 +39,7 @@
         <ion-card>
             <ion-item>
                 <ion-label position="floating">Discount</ion-label>
-                <ion-input type="text" autofocus></ion-input>
+                <ion-input type="number" autofocus [(ngModel)]="discountValue"></ion-input>
               </ion-item>
         </ion-card> 
   

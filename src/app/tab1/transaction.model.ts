@@ -6,7 +6,9 @@ export interface Transaction {
     date: string;
     total: number;
     discount: number;
+    discountType: string;
     vat: number;
     subtotal: number;
     items: Item[];
+    change: number;
  }
